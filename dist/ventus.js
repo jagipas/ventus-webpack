@@ -3,15 +3,16 @@
  * Copyright © 2015 Ramón Lamana
  * http://www.rlamana.com
  */
-(function (root, factory) {
-    if (typeof define === 'function' && define.amd) { // AMD.
-        define(['$'], factory);
-    } else { // Browser globals
-        root.Ventus = factory(root.$);
-    }
-}(this, function (jQuery) {
+// (function (root, factory) {
+//     if (typeof define === 'function' && define.amd) { // AMD.
+//         define(['$'], factory);
+//     } else { // Browser globals
+//         root.Ventus = factory(root.$);
+//     }
+// }(this, function (jQuery) {
 
-    var requirejs, require, define;
+var requirejs, require, define;
+
 (function (undef) {
     var defined = {}, waiting = {}, config = {}, defining = {}, aps = [].slice, main, req;
     function normalize(name, baseName) {
@@ -1574,8 +1575,8 @@ define('ventus/wm/modes/default', [], function () {
 });
 (function () {
     var n = window, t = n._, r = {}, e = Array.prototype, u = Object.prototype, i = Function.prototype, a = e.push, o = e.slice, c = e.concat, l = u.toString, f = u.hasOwnProperty, s = e.forEach, p = e.map, h = e.reduce, v = e.reduceRight, d = e.filter, g = e.every, m = e.some, y = e.indexOf, b = e.lastIndexOf, x = Array.isArray, _ = Object.keys, j = i.bind, w = function (n) {
-            return n instanceof w ? n : this instanceof w ? (this._wrapped = n, void 0) : new w(n);
-        };
+        return n instanceof w ? n : this instanceof w ? (this._wrapped = n, void 0) : new w(n);
+    };
     'undefined' != typeof exports ? ('undefined' != typeof module && module.exports && (exports = module.exports = w), exports._ = w) : n._ = w, w.VERSION = '1.4.4';
     var A = w.each = w.forEach = function (n, t, e) {
         if (null != n)
@@ -1602,8 +1603,8 @@ define('ventus/wm/modes/default', [], function () {
         if (null == n && (n = []), h && n.reduce === h)
             return e && (t = w.bind(t, e)), u ? n.reduce(t, r) : n.reduce(t);
         if (A(n, function (n, i, a) {
-                u ? r = t.call(e, r, n, i, a) : (r = n, u = !0);
-            }), !u)
+            u ? r = t.call(e, r, n, i, a) : (r = n, u = !0);
+        }), !u)
             throw new TypeError(O);
         return r;
     }, w.reduceRight = w.foldr = function (n, t, r, e) {
@@ -1616,8 +1617,8 @@ define('ventus/wm/modes/default', [], function () {
             i = a.length;
         }
         if (A(n, function (o, c, l) {
-                c = a ? a[--i] : --i, u ? r = t.call(e, r, n[c], c, l) : (r = n[c], u = !0);
-            }), !u)
+            c = a ? a[--i] : --i, u ? r = t.call(e, r, n[c], c, l) : (r = n[c], u = !0);
+        }), !u)
             throw new TypeError(O);
         return r;
     }, w.find = w.detect = function (n, t, r) {
@@ -1873,8 +1874,8 @@ define('ventus/wm/modes/default', [], function () {
         ].concat(o.call(arguments, 1)));
     }, w.throttle = function (n, t) {
         var r, e, u, i, a = 0, o = function () {
-                a = new Date(), u = null, i = n.apply(r, e);
-            };
+            a = new Date(), u = null, i = n.apply(r, e);
+        };
         return function () {
             var c = new Date(), l = t - (c - a);
             return r = this, e = arguments, 0 >= l ? (clearTimeout(u), u = null, a = c, i = n.apply(r, e)) : u || (u = setTimeout(o, l)), i;
@@ -1883,8 +1884,8 @@ define('ventus/wm/modes/default', [], function () {
         var e, u;
         return function () {
             var i = this, a = arguments, o = function () {
-                    e = null, r || (u = n.apply(i, a));
-                }, c = r && !e;
+                e = null, r || (u = n.apply(i, a));
+            }, c = r && !e;
             return clearTimeout(e), e = setTimeout(o, t), c && (u = n.apply(i, a)), u;
         };
     }, w.once = function (n) {
@@ -1975,15 +1976,15 @@ define('ventus/wm/modes/default', [], function () {
         if (u != l.call(t))
             return !1;
         switch (u) {
-        case '[object String]':
-            return n == t + '';
-        case '[object Number]':
-            return n != +n ? t != +t : 0 == n ? 1 / n == 1 / t : n == +t;
-        case '[object Date]':
-        case '[object Boolean]':
-            return +n == +t;
-        case '[object RegExp]':
-            return n.source == t.source && n.global == t.global && n.multiline == t.multiline && n.ignoreCase == t.ignoreCase;
+            case '[object String]':
+                return n == t + '';
+            case '[object Number]':
+                return n != +n ? t != +t : 0 == n ? 1 / n == 1 / t : n == +t;
+            case '[object Date]':
+            case '[object Boolean]':
+                return +n == +t;
+            case '[object RegExp]':
+                return n.source == t.source && n.global == t.global && n.multiline == t.multiline && n.ignoreCase == t.ignoreCase;
         }
         if ('object' != typeof n || 'object' != typeof t)
             return !1;
@@ -2000,7 +2001,7 @@ define('ventus/wm/modes/default', [], function () {
             if (c !== f && !(w.isFunction(c) && c instanceof c && w.isFunction(f) && f instanceof f))
                 return !1;
             for (var s in n)
-                if (w.has(n, s) && (a++, !(o = w.has(t, s) && I(n[s], t[s], r, e))))
+                if (w.has(n, s) && (a++ , !(o = w.has(t, s) && I(n[s], t[s], r, e))))
                     break;
             if (o) {
                 for (s in t)
@@ -2114,22 +2115,22 @@ define('ventus/wm/modes/default', [], function () {
         escape: /<%-([\s\S]+?)%>/g
     };
     var T = /(.)^/, q = {
-            '\'': '\'',
-            '\\': '\\',
-            '\r': 'r',
-            '\n': 'n',
-            '\t': 't',
-            '\u2028': 'u2028',
-            '\u2029': 'u2029'
-        }, B = /\\|'|\r|\n|\t|\u2028|\u2029/g;
+        '\'': '\'',
+        '\\': '\\',
+        '\r': 'r',
+        '\n': 'n',
+        '\t': 't',
+        '\u2028': 'u2028',
+        '\u2029': 'u2029'
+    }, B = /\\|'|\r|\n|\t|\u2028|\u2029/g;
     w.template = function (n, t, r) {
         var e;
         r = w.defaults({}, r, w.templateSettings);
         var u = RegExp([
-                (r.escape || T).source,
-                (r.interpolate || T).source,
-                (r.evaluate || T).source
-            ].join('|') + '|$', 'g'), i = 0, a = '__p+=\'';
+            (r.escape || T).source,
+            (r.interpolate || T).source,
+            (r.evaluate || T).source
+        ].join('|') + '|$', 'g'), i = 0, a = '__p+=\'';
         n.replace(u, function (t, r, e, u, o) {
             return a += n.slice(i, o).replace(B, function (n) {
                 return '\\' + q[n];
@@ -2500,15 +2501,15 @@ define('src/main', [
 ], function () {
 });
 
-    // Register in the values from the outer closure for common dependencies
-    // as local almond modules
-    define('$', function () {
-        return jQuery;
-    });
+// Register in the values from the outer closure for common dependencies
+// as local almond modules
+define('$', function () {
+    return jQuery;
+});
 
-    define('underscore', function () {
-        return _;
-    });
+define('underscore', function () {
+    return _;
+});
 
-    return require('ventus');
-}));
+module.exports = require('ventus');
+// }));
